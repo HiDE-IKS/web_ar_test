@@ -1,28 +1,25 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.dom.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.sound.min.js"></script>
-
-    <!-- Generative Design Dependencies here -->
-    <!-- GG Bundled -->
-    <script src="https://cdn.jsdelivr.net/gh/generative-design/Code-Package-p5.js@master/libraries/gg-dep-bundle/gg-dep-bundle.js"></script>
-    <!-- Opentype -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/opentype.js/0.7.3/opentype.min.js"></script>
-    <!-- Rita -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/rita/1.3.11/rita-small.min.js"></script>
-    <!-- Chroma -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/1.3.6/chroma.min.js"></script>
-    <!-- Jquery -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <title>AR</title>
-</head>
-<body>
-    <p>test</p>
-    <script src="./script/index.js"></script>
-</body>
+        <head>
+                <!-- ① A-Frame を読み込む -->
+                <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
+                <!-- ② AR.js を読み込む -->
+                <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/build/aframe-ar.js"></script>
+              </head>
+              <body style='margin: 0; overflow: hidden;'>
+              <!-- ③ シーンを追加 -->
+              <a-scene embedded arjs>
+                <!-- ④ マーカーを追加 ここから -->
+                <a-marker preset="hiro">
+                  <!-- ⑤ オブジェクトの追加 -->
+                  <a-sphere scale=".25 .25 .25" position="0 .5 0" color="#111">
+                    <a-animation attribute="position" to="0 1 0" direction="alternate" dur="2000" repeat="indefinite">
+                    </a-animation>
+                  </a-sphere>
+                </a-marker>
+              
+                <!-- ⑥ カメラを追加 -->
+                <a-entity camera></a-entity>
+              </a-scene>
+              </body>
 </html>
